@@ -1,0 +1,19 @@
+  <div id="sidebar-wrapper">
+    <div class="main">
+    </div>
+    <div id="inbox">Your inbox
+      <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+      <span ng-click="closeMessage()" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    </div>
+
+    <ul class="sidebar-nav" ng-repeat="m in inbox">
+      <li class="sidebar-brand">
+        <div id="message-box">
+          <a href="javascript:void(0)" ng-click="openMessage()"><img id="inbox-img" src="http://placehold.it/20x20"></a>
+          <p id="reply">Reply Request -<span>{{m.time}}</span></p>
+          <p id="note"><a href="#">{{m.message}}</a></p>
+          <p id="location">{{m.location}}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
