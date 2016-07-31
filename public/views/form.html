@@ -1,15 +1,4 @@
-
-
-<div id="wrapper" class="container-fluid">
-  <!-- Sidebar -->
-<inbox-messages></inbox-messages>
-
-</div>
-
-
-
 <!-- Page Content -->
-<div id="page-content-wrapper">
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -23,32 +12,54 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#"><span class="glyphicon glyphicon-plus" aria-hidden="true" ng-click="toggle()"> Submit Post</a></li>
+        <li><a href="#" ng-click="toggle()"><span class="glyphicon glyphicon-plus" aria-hidden="true"> Submit Post</span></a></li>
+      </ul>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" ng-model="post.query">
+        </div>
+        
+      </form>
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"aria-haspopup="true" aria-expanded="false">Sort By<span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#" ng-click="order('date')">Date</a></li>
+            <li><a href="#" ng-click="order('title')">Title</a></li>
+            <li><a href="#" ng-click="order('-voteCount')">Votes</a></li>
           </ul>
-            <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search" ng-model="post.query">
-            </div>
-          
-          </form>
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"aria-haspopup="true" aria-expanded="false">Sort By<span class="caret"></span>
-              </a>
-            <ul class="dropdown-menu">
-                  <li><a href="#" ng-click="order('date')">Date</a></li>
-                  <li><a href="#" ng-click="order('title')">Title</a></li>
-                  <li><a href="#" ng-click="order('-voteCount')">Votes</a></li>
-            </ul>
-            </li>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
-              </div>
 
-              <div id="form-views" ui-view></div>
-            </div>
+<div class="container">
+  <form role="form" for="form" ng-show="postForm" ng-submit="addPost(post)">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" ng-model="post.title" id="title" name="title" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="author">Author</label>
+      <input type="text" ng-model="post.author" id="author" name="author" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="imgUrl">Image Url</label>
+      <input type="text" ng-model="post.imgUrl" id="imgUrl" name="imgUrl" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea type="text" ng-model="post.description" id="description" name="description" class="form-control">
+      </textarea> 
+      <input type="submit" value="Submit Post" ng-click="onOff=onOff">
+    </div>
+  </form>
+</div>
+
+<div id="form-views" ui-view></div>
+
 
 
 

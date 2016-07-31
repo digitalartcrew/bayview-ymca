@@ -49,7 +49,7 @@ $scope.voteDown = function (post){
 post.voteCount--;
 };
 
-$scope.postForm = false;
+$scope.postForm =  false;
     $scope.toggle = function() {
         $scope.postForm = !$scope.postForm;
     };
@@ -93,9 +93,6 @@ $scope.postForm = false;
     !$scope.reverse : false;
       $scope.predicate = predicate;
     };
-
-
-
 
 });
 

@@ -17,7 +17,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
   .state('form', {
     url: '/form',
     templateUrl: 'views/form.html',
-    controller: 'FormCtrl'
+    controller: 'redditController'
   })
   
   .state('form.map', {
